@@ -1,0 +1,24 @@
+.best{
+    width: 90%;
+    margin: 0 auto 100px auto;
+    padding: 5px 10px;
+    background: #fff;
+    .slick-slide{
+        height: 236px;
+    }
+    button::before{
+        font-size: 30px;
+        color: grey;
+    }
+    .slick-next{
+        right: -35px;
+    }
+    .slick-prev{
+        left: -45px;
+    }
+    img{
+        object-fit: contain;
+    }
+}
+
+

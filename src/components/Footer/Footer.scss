@@ -1,0 +1,49 @@
+.sign-footer{
+    padding: 30px 0;
+    display: flex;
+    border-top: 1px solid grey ;
+    border-bottom: 1px solid grey ;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 0 50px 0;
+    background: #ffffff;
+    gap: 20px;
+    &__link{
+        padding: 10px 30px;
+        text-align: center;
+        background: #ffcc4b;
+        text-decoration: none;
+        color: #000;
+    }
+}
+.back-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    background: #485769;
+    color: #ffffff;
+    cursor: pointer;
+    &:hover{
+        background:#5e6e82 ;
+    }
+}
+
+.footer-info{
+    background: #232f3e;
+    color: #ffffff;
+    padding: 100px 0;
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    flex-wrap: wrap;
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .head-item{
+            font-weight: 800;
+        }
+    }
+}

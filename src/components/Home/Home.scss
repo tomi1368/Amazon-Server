@@ -1,0 +1,10 @@
+.products{  
+    display: grid;
+    width: 80%;
+    margin: 300px auto 200px auto;
+    background: transparent;
+    max-width: 1195px;
+    z-index: 4;
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    gap: 20px;
+}

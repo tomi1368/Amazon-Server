@@ -1,0 +1,117 @@
+nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    padding: 15px 10px;
+    gap: 20px;
+    font-size: 14px;    
+    .nav-left{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        &__logo{
+            height: 30px;
+        }    
+        &__location{
+            display: flex;
+            color: #fff;
+            gap: 10px;
+            align-items: center;
+            &__logo{
+                margin: 0 0 2px 0;
+                align-self: flex-end;
+            }
+            &__country{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+    .nav-middle{
+        display: flex;
+        align-items: center;
+        flex: 1 1 auto;
+        max-width: 900px;
+        &__select{
+            select{
+                border-radius: 5px 0 0 5px;
+                padding: 10.8px 2px;
+            }
+        }
+        &__search{
+            width: 100%;
+            input{
+                width: 100%;
+                padding: 10px 10px;
+            }
+        }
+        &__btn{
+            padding: 11px 12px;
+            background-color: #febd69;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    }
+    .nav-rigth{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        &__country{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            img{
+                height: 30px;
+            }
+            span{
+                color: #fff;
+                font-size: 18px
+            }
+        }
+        &__sign{
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            .important{
+                font-weight: 700;
+            }
+        }
+        &__return{
+            display: flex;
+            flex-direction: column;
+            color: #fff;
+            .important{
+                font-weight: 700;
+            }
+        }
+        &__checkout{
+            display: flex;
+            align-items: center;
+            height: 100%;
+            gap: 10px;
+            &__count{
+                position: relative;
+                height: 100%;
+                display: flex;
+                padding-top: 10px;
+                &__cart{
+                    color: white;
+                    font-size: 20px;
+                    align-self: flex-end;
+                    
+
+                }
+                span{
+                    position: absolute;
+                    top: -5px;
+                    right: 5px;
+                    color: #fff;
+                }
+            }
+            span{
+                color: white;
+            }
+        }
+    }
+}

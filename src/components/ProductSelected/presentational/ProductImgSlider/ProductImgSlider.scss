@@ -1,0 +1,28 @@
+.slider-product {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  z-index: 1;
+  .slick-slide img {
+    display: block;
+    height: 300px;
+    width: 300px;
+  }
+}
+
+.slick-thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: auto;
+  position: absolute;
+  height: min-content;
+  top: 150px;
+  left: -150px;
+  li {
+    width: 100px;
+    height: auto;
+    display: block;
+  }
+}
