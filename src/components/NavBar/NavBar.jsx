@@ -1,27 +1,34 @@
-import React,{useState} from "react";
-import { Link, useNavigate} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapMarkedAlt, faSearch , faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { useSelector} from "react-redux";
+import {
+  faMapMarkedAlt,
+  faSearch,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../redux/userRedux";
 import "./NavBar.scss";
+import { ordersEmpty } from "../../redux/orderRedux";
+
+
+
 const NavBar = () => {
-  const [search,setSearch] = useState("")
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const countProducts = useSelector((state)=>state.cart)
-  console.log(countProducts)
-  const searchProduct = ()=>{
-    navigate(search.trim().length == 0 ? `/product/all` : `/product/${search}` )
-  }
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const countProducts = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
+
+  const searchProduct = () => {
+    navigate(search.trim().length == 0 ? `/product/all` : `/product/${search}`);
+  };
   return (
     <nav>
       <div className="nav-left">
         <div className="nav-left__logo">
           <Link to="/">
-          <img
-            src="/src/public/logo.png"
-            alt=""
-          />
+            <img src="/src/public/logo.png" alt="" />
           </Link>
         </div>
         <div className="nav-left__location">
@@ -42,9 +49,18 @@ const NavBar = () => {
           </select>
         </div>
         <div className="nav-middle__search">
-          <input type="search" onChange={(e)=> setSearch(e.target.value)} value={search} placeholder="Search a product" />
+          <input
+            type="search"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            placeholder="Search a product"
+          />
         </div>
-        <button type="submit" onClick={()=> searchProduct()} className="nav-middle__btn">
+        <button
+          type="submit"
+          onClick={() => searchProduct()}
+          className="nav-middle__btn"
+        >
           <FontAwesomeIcon
             icon={faSearch}
             className="nav-left__location__logo"
@@ -59,17 +75,35 @@ const NavBar = () => {
           />
           <span>↓</span>
         </div>
-        <Link to="/login" className="nav-rigth__sign">
-          <span>Hello, Sign in</span>
-          <span className="important">Account & Lists</span>
-        </Link>
+        {user.currentUser ? (
+          <button
+            onClick={() => {
+              dispatch(logOut())
+              dispatch(ordersEmpty())
+            }}
+            className="nav-rigth__sign"
+            style={{backgroundColor:"transparent",border:"none",cursor:"pointer"}}
+          >
+            <span>Hello {user.currentUser.user.username}</span>
+            <span className="important">LogOut</span>
+          </button>
+        ) : (
+          <Link to="/login" className="nav-rigth__sign">
+            <span>Hello, Guest, Sign in</span>
+            <span className="important">Account & Lists</span>
+          </Link>
+        )}
+
         <Link to="/orders" className="nav-rigth__return">
           <span>Return</span>
           <span className="important">& Orders</span>
         </Link>
         <Link to="/checkout" className="nav-rigth__checkout">
           <div className="nav-rigth__checkout__count">
-            <FontAwesomeIcon className="nav-rigth__checkout__count__cart" icon={faShoppingCart}/>
+            <FontAwesomeIcon
+              className="nav-rigth__checkout__count__cart"
+              icon={faShoppingCart}
+            />
             <span>{countProducts.quantity}</span>
           </div>
           <span>Cart</span>

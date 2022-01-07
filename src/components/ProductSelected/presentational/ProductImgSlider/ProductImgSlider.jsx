@@ -12,7 +12,7 @@ const ProductImgSlider = ({info}) => {
         customPaging: function(i) {
           return (
             <div style={{maxWidth:"200px", width:"50px", height:"50px"}}>
-              <img src={info.data.data.imagesSlider[i]} />
+              <img src={info.imagesSlider[i]} />
             </div>
           );
         },
@@ -31,7 +31,7 @@ const ProductImgSlider = ({info}) => {
 
     return (
             <Slider {...settings} className='slider-product'> 
-                {info.data.data.imagesSlider.map(item=>{
+                {info.imagesSlider.map(item=>{
                     return(    
                         <div className='a'>
                             <img src={item} alt="" />

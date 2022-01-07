@@ -1,15 +1,20 @@
 import React from 'react'
 import { Formik, Form, Field } from "formik";
 import { errorHandler,Schema,initialValue } from './formSettings/formSettings';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import "./Login.scss"
-const validationForm = (v)=>{
-
-}
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/apiRequests';
 
 
 
 const Login = () => {
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const validationForm = (v)=>{
+            login(v,dispatch,navigate)
+    }
+    
     return (
         <div className='login'>
             <div className="login-logo">
@@ -20,7 +25,7 @@ const Login = () => {
             <Formik
             initialValues={initialValue}
             validationSchema={Schema}
-            onSubmit={validationForm()}
+            onSubmit={(v)=>validationForm(v)}
             >
                 {({ errors })=>{
                     return(
