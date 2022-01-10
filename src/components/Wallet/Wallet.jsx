@@ -17,7 +17,7 @@ const Wallet = () => {
   const user = useSelector((state)=>state.user.currentUser)
   const [searchParams,setSearchParams] = useSearchParams()
   const dispatch = useDispatch()
-
+  console.log(cart.products)
  
 
 
@@ -59,7 +59,7 @@ const Wallet = () => {
     </div>
     <div className="checkout-container__checkout">
         <h3>{`Subtotal: (${cart.quantity} items) $${cart.total} `}</h3>
-        { user ? <button onClick={()=> productCheckOut()  }> Procced to Checkout </button> : <button style={{backgroundColor:"#cccccc"}} > Login to Checkout </button> }
+        { user && !cart.products.length == 0 ? <button onClick={()=> productCheckOut()  }> Procced to Checkout </button> : <button style={{backgroundColor:"#cccccc"}} > {cart.products.length == 0 ? "No products in Cart" : "Login to Checkout"} </button> }
     </div>
     </div>
     </div>

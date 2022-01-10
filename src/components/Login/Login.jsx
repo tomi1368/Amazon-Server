@@ -18,7 +18,9 @@ const Login = () => {
     return (
         <div className='login'>
             <div className="login-logo">
+                <Link to={"/"}>
                 <img src="https://logodownload.org/wp-content/uploads/2014/04/amazon-logo-2.png" alt="" />
+                </Link>
             </div>
             <div className="login-form">
                 <h2>Sign-In</h2>

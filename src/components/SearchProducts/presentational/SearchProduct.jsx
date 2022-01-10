@@ -15,7 +15,8 @@ const SearchProduct = ({ filters, time }) => {
     const getProducts = async () => {
       try {
         let results = await axios.get( params.id == "all" ? `http://localhost:5006/api/product` : `http://localhost:5006/api/product/${params.id}`);
-        setProducts(results.data.data);
+        console.log(results.data)
+        setProducts(results.data);
       } catch (error) {
         console.log(error);
       }

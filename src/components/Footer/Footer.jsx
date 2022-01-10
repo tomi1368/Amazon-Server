@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import "./Footer.scss"
+import { useSelector } from "react-redux"
 
 const Footer = () => {
-
+    const user = useSelector(state=>state.user.currentUser)
     const scrollTop = ()=>{
         window.scrollTo({
             top:0,
@@ -15,8 +16,8 @@ const Footer = () => {
         <>
         <div className="sign-footer">
             <h4>See personalized recommendations</h4>
-            <Link to="/login" className="sign-footer__link">Sign In</Link>
-            <h6>New customer? <Link to="/register">Start here </Link></h6>
+            <Link to={user ? `/` : `/login`} className="sign-footer__link">Sign In</Link>
+            <h6>New customer? <Link to={user ? `/` : `/register`}>Start here </Link></h6>
         </div>
         <div className="back-top" onClick={()=> scrollTop() }> {/* Hacer que vaya arriba de todo */}
             <p>Back to top</p>

@@ -1,6 +1,8 @@
-import {loginFailure, loginStart, loginSuccess } from "./userRedux";
 import axios from "axios";
+import {loginFailure, loginStart, loginSuccess } from "./userRedux";
 import { ordersRequest, ordersAdd } from "./orderRedux";
+import { initProducts } from "./productRedux";
+
 
 export const login = async (user, dispatch,navigate) => {
   dispatch(loginStart());
@@ -24,7 +26,6 @@ export const addOrders = async (order,token,dispatch)=>{ //Tengo que sacar el qu
         Authorization: `Bearer ${token || " "}`
       }
     })
-    console.log(newOrder)
     dispatch(ordersAdd(newOrder.data))
   }catch(err){
     console.log(err.message)
@@ -47,4 +48,10 @@ export const getOrders = async (id,token,dispatch)=>{
   }catch(err){
     console.log(err)
   }
+}
+
+export const getProducts = async (dispatch)=>{
+  let products = await axios.get("http://localhost:5006/api/product")
+  console.log(products)
+  dispatch(initProducts(products.data))
 }

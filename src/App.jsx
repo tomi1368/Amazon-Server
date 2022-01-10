@@ -12,10 +12,18 @@ import SearchProducts from "./components/SearchProducts/SearchProducts";
 import ProductSelected from "./components/ProductSelected/ProductSelected";
 import Wallet from "./components/Wallet/Wallet";
 import Orders from "./components/Orders/Orders";
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProducts } from "./redux/apiRequests";
+
+
+
 
 function App() {
-  const user = useSelector((state) => state.user.currentUser);
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    getProducts(dispatch)
+  },[])
   return (
     <>
       <Routes>
