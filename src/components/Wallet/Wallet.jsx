@@ -33,7 +33,7 @@ const Wallet = () => {
   const productCheckOut = async ()=> {
     let mercadoResponse = await axios({
       method:"POST" ,
-      url:"http://localhost:5006/api/checkout",
+      url:"https://mern-amazon12.herokuapp.com/api/checkout",
       data:cart.products,
       headers: {
         Authorization: `Bearer ${user.token || " "}`,

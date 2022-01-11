@@ -7,7 +7,7 @@ import { initProducts } from "./productRedux";
 export const login = async (user, dispatch,navigate) => {
   dispatch(loginStart());
   try {
-    const response = await axios.post("http://localhost:5006/api/auth/login", user);
+    const response = await axios.post("https://mern-amazon12.herokuapp.com/api/auth/login", user);
     getOrders(response.data.user._id,response.data.token,dispatch)
     dispatch(loginSuccess({user:response.data.user,token:response.data.token}));
     navigate("/")
@@ -20,7 +20,7 @@ export const addOrders = async (order,token,dispatch)=>{ //Tengo que sacar el qu
   try{
     let newOrder = await axios({
       method:"POST",
-      url:"http://localhost:5006/api/orders",
+      url:"https://mern-amazon12.herokuapp.com/api/orders",
       data:order,
       headers:{
         Authorization: `Bearer ${token || " "}`
@@ -37,7 +37,7 @@ export const getOrders = async (id,token,dispatch)=>{
     let getAllOrders = await axios(
       {
         method:"GET",
-        url:`http://localhost:5006/api/orders/${id}`,
+        url:`https://mern-amazon12.herokuapp.com/api/orders/${id}`,
         headers:{
           Authorization: `Bearer ${token || " "}`
         }
@@ -51,7 +51,7 @@ export const getOrders = async (id,token,dispatch)=>{
 }
 
 export const getProducts = async (dispatch)=>{
-  let products = await axios.get("http://localhost:5006/api/product")
+  let products = await axios.get("https://mern-amazon12.herokuapp.com/api/product")
   console.log(products)
   dispatch(initProducts(products.data))
 }

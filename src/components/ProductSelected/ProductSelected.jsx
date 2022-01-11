@@ -17,7 +17,7 @@ const ProductSelected = () => {
   useEffect(() => { 
     const productId = async () => {
       let product = await axios.get(
-        `http://localhost:5006/api/product/find/${params.id}`
+        `https://mern-amazon12.herokuapp.com/api/product/find/${params.id}`
       );
       setInfoProduct(product.data.data);
 

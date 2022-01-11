@@ -14,7 +14,7 @@ const SearchProduct = ({ filters, time }) => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        let results = await axios.get( params.id == "all" ? `http://localhost:5006/api/product` : `http://localhost:5006/api/product/${params.id}`);
+        let results = await axios.get( params.id == "all" ? `https://mern-amazon12.herokuapp.com/api/product` : `https://mern-amazon12.herokuapp.com/api/product/${params.id}`);
         console.log(results.data)
         setProducts(results.data);
       } catch (error) {

@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const validationForm = async (v,navigate)=>{
     try{
-        let newUser = await axios.post("http://localhost:5006/api/auth/register",v)
+        let newUser = await axios.post("https://mern-amazon12.herokuapp.com/api/auth/register",v)
         navigate("/login")
     }catch(err){
         console.log(err.message)
