@@ -5,7 +5,7 @@ import {
   faMapMarkedAlt,
   faSearch,
   faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+} from "@fontawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/userRedux";
 import "./NavBar.scss";
