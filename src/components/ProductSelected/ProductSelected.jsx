@@ -13,8 +13,6 @@ const ProductSelected = () => {
   const [infoProduct, setInfoProduct] = useState(null);
   const [productSend,setProductSend] = useState({price:0,quantity:0,product:{}})
   const dispatch = useDispatch()
-  const state = useSelector(state => state.cart)
-  console.log(productSend,state)
   const params = useParams();
   useEffect(() => { 
     const productId = async () => {
@@ -22,6 +20,7 @@ const ProductSelected = () => {
         `http://localhost:5006/api/product/find/${params.id}`
       );
       setInfoProduct(product.data.data);
+
     };
     productId();
   }, []);

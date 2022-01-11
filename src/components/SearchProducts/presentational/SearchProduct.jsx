@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "../SearchProducts.scss";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SearchProduct = ({ filters, time }) => {
   const [filterProducts, setFilterProducts] = useState([]);
@@ -60,9 +60,9 @@ const SearchProduct = ({ filters, time }) => {
     <>
       {((filterProducts != undefined || filterProducts.length != 0) && Object.keys(filters).length != 0 )
         ? filterProducts.map((elem) => {
-            console.log("hola")
             return (
-              <div className="search-products__product">
+              <Link to={`/product/find/${elem._id}`} style={{color:"inherit"}} >
+              <div className="search-products__product" >
                 <div className="search-products__product__img">
                   <img src={elem.image} alt={elem.title} />
                 </div>
@@ -81,10 +81,12 @@ const SearchProduct = ({ filters, time }) => {
                   <p>{elem.description}</p>
                 </div>
               </div>
+              </Link>
             );
           })
         : products.map((elem) => {
             return (
+              <Link to={`/product/find/${elem._id}`} style={{color:"inherit"}} >
               <div className="search-products__product">
                 <div className="search-products__product__img">
                   <img src={elem.image} alt={elem.title} />
@@ -104,6 +106,7 @@ const SearchProduct = ({ filters, time }) => {
                   <p>{elem.description}</p>
                 </div>
               </div>
+              </Link>
             );
           })}
     </>

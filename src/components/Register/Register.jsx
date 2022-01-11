@@ -3,13 +3,23 @@ import { Formik, Form, Field } from "formik";
 import { errorHandler,Schema,initialValue } from './formSettings/formSettings';
 import { Link } from 'react-router-dom';
 import "./Register.scss"
-const validationForm = (v)=>{
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+const validationForm = async (v,navigate)=>{
+    try{
+        let newUser = await axios.post("http://localhost:5006/api/auth/register",v)
+        navigate("/login")
+    }catch(err){
+        console.log(err.message)
+    }
 
 }
 
  
 
 const Register = () => {
+    const navigate = useNavigate()
     return (
         <div className='register'>
             <Link to="/" className="register-logo">
@@ -20,13 +30,13 @@ const Register = () => {
             <Formik
             initialValues={initialValue}
             validationSchema={Schema}
-            onSubmit={validationForm()}
+            onSubmit={(v)=>validationForm(v,navigate)}
             >
                 {({ errors })=>{
                     return(
                         <Form className='register-form__container'>
-                            <Field name="name" className='register-form__container__field' placeholder="Enter name..." />
-                            {errorHandler(errors).name()}
+                            <Field name="username" className='register-form__container__field' placeholder="Enter name..." />
+                            {errorHandler(errors).username()}
                             <Field name="email" className='register-form__container__field' placeholder="Enter email..." />
                             {errorHandler(errors).email()}
                             <Field name="password" className='register-form__container__field' type="password" placeholder="Enter your Password..."/>
