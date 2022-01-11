@@ -7,7 +7,7 @@ export default defineConfig({
   build:{
     rollupOptions:{
       external:[ 
-        "@fontawesome/react-fontawesome"
+        "@fortawesome/react-fontawesome"
       ]
     }
   }
