@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/* global cy */
 
 describe("App", () => {
   beforeEach(() => {
