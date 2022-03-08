@@ -15,7 +15,6 @@ const SearchProduct = ({ filters, time }) => {
     const getProducts = async () => {
       try {
         let results = await axios.get( params.id == "all" ? `https://mern-amazon12.herokuapp.com/api/product` : `https://mern-amazon12.herokuapp.com/api/product/${params.id}`);
-        console.log(results.data)
         setProducts(results.data);
       } catch (error) {
         console.log(error);
