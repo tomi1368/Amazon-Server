@@ -11,3 +11,7 @@ jobs:
     steps:
       - name: Echo the message
         run: |
+          echo "Hola Tomi!"
+      - name: Sumar 
+        run: |
+          2 + 2 
