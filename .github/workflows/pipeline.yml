@@ -19,6 +19,9 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Test
-        run: npm run cypress:test
-      
+      - name: Cypress run
+        run: cypress-io/github-action@v2
+        with:
+          command: npm run cypress:test
+          start: npm run dev
+          with-on: http://localhost:3000
