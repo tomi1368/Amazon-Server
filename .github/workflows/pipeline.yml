@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-        with: 
+        with:
           fetch-depth: 0
       - uses: actions/setup-node@v2
         with:
-          node-version : "14"
+          node-version: "14"
       - name: Install dependencies
         run: npm install
       - name: Build
         run: npm run build
       - name: Cypress run
-        run: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v2
         with:
           command: npm run cypress:test
           start: npm run dev
