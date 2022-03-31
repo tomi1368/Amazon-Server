@@ -2,7 +2,6 @@ import React from "react";
 import "./Order.scss";
 
 const Order = ({info}) => {
-  console.log(info);
   return (
     <div className="order">
       <div className="order-info">

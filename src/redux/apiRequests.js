@@ -52,6 +52,5 @@ export const getOrders = async (id,token,dispatch)=>{
 
 export const getProducts = async (dispatch)=>{
   let products = await axios.get("https://mern-amazon12.herokuapp.com/api/product")
-  console.log(products)
   dispatch(initProducts(products.data))
 }

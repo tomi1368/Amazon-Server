@@ -15,7 +15,6 @@ const Product = ({data}) => {
             quantity:1,
             price:data.price
         }
-        console.log(info)
         dispatch(addProduct(info))
     }
 

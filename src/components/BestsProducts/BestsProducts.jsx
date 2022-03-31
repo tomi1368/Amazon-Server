@@ -10,22 +10,21 @@ const settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
+    slidesToShow: 1,
+    slidesToScroll: 1
   };
 
 
 
 const BestsProducts = () => {
     const products = useSelector(state=>state.products)
-    console.log(products)
-    let newArray = products.ALLproducts.slice(2)
-    console.log(newArray)
+    /* let newArray = products.ALLproducts.filter(a=>a.rating > 1)
+    log(products.ALLproducts) */
     return (
         <div className='best'>
             <h2>Best Sellers</h2>
             <Slider {...settings}>
-                {newArray.map(el=>{
+                {products.ALLproducts.map(el=>{
                     return(
                         <div className='best-card'>
                             <Link to={`/product/find/${el._id}`} >

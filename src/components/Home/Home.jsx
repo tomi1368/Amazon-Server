@@ -5,7 +5,6 @@ import Product from './presentational/Product/Product'
 
 const Home = () => {
     const products = useSelector(state=>state.products)
-    console.log(products)
     return (
         <main className='products'>
             {products.ALLproducts.map((el,i)=> <Product data={el} key={i}></Product>)}

@@ -5,7 +5,11 @@ nav{
     background-color: #131921;
     padding: 15px 10px;
     gap: 20px;
-    font-size: 14px;    
+    font-size: 14px;
+    @media screen and (max-width:954px) {
+        flex-direction: column;
+        align-items: stretch;
+    }    
     .nav-left{
         display: flex;
         align-items: center;
@@ -27,6 +31,9 @@ nav{
                 flex-direction: column;
             }
         }
+        @media screen and (max-width:954px) {
+            align-self: center;
+        }    
     }
     .nav-middle{
         display: flex;
@@ -113,5 +120,8 @@ nav{
                 color: white;
             }
         }
+        @media screen and (max-width:954px) {
+            align-self: center;
+        }    
     }
 }
