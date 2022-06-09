@@ -3,7 +3,7 @@
 describe("App", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
-    cy.request("POST", "https://mern-amazon12.herokuapp.com/api/reset");
+    cy.request("POST", "http://localhost:5006/api/reset");
     const user = {
       username: "tomas1368",
       password: "ESCALERA",
@@ -11,7 +11,7 @@ describe("App", () => {
     };
     cy.request(
       "POST",
-      "https://mern-amazon12.herokuapp.com/api/auth/register",
+      "http://localhost:5006/api/auth/register",
       user
     );
   });
@@ -37,7 +37,7 @@ describe("App", () => {
 
 describe("Logged User", () => {
   beforeEach(() => {
-    cy.request("POST", "https://mern-amazon12.herokuapp.com/api/reset");
+    cy.request("POST", "http://localhost:5006/api/reset");
     const user = {
       username: "tomas1368",
       password: "ESCALERA",
@@ -45,7 +45,7 @@ describe("Logged User", () => {
     };
     cy.request(
       "POST",
-      "https://mern-amazon12.herokuapp.com/api/auth/register",
+      "http://localhost:5006/api/auth/register",
       user
     );
     cy.visit("http://localhost:3000/");
@@ -78,12 +78,12 @@ describe("Logged User", () => {
       email: "tomi1368@gmail.com",
     };
     cy.request({
-      url: "https://mern-amazon12.herokuapp.com/api/auth/login",
+      url: "http://localhost:5006/api/auth/login",
       method: "POST",
       body: user,
     }).then((res) => {
       cy.request({
-        url: "https://mern-amazon12.herokuapp.com/api/product",
+        url: "http://localhost:5006/api/product",
         method: "POST",
         headers: {
           authorization: `Bearer ${res.body.token}`,
