@@ -3,7 +3,7 @@
 describe("App", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/");
-    cy.request("POST", "https://redux-sv.herokuapp.com/api/reset");
+    cy.request("POST", "https://redux-sv.herokuapp.com/api/test/reset");
     const user = {
       username: "tomas1368",
       password: "ESCALERA",
