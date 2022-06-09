@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faMapMarkedAlt,
-  faSearch,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/userRedux";
 import "./NavBar.scss";
 import { ordersEmpty } from "../../redux/orderRedux";
-
-
 
 const NavBar = () => {
   const [search, setSearch] = useState("");
@@ -32,10 +24,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="nav-left__location">
-          <FontAwesomeIcon
-            icon={faMapMarkedAlt}
-            className="nav-left__location__logo"
-          />
+        🗺️
           <div className="nav-left__location__country">
             <span>Deliver to</span>
             <span>Argentina</span>
@@ -61,10 +50,7 @@ const NavBar = () => {
           onClick={() => searchProduct()}
           className="nav-middle__btn"
         >
-          <FontAwesomeIcon
-            icon={faSearch}
-            className="nav-left__location__logo"
-          />
+         🔎
         </button>
       </div>
       <div className="nav-rigth">
@@ -78,11 +64,15 @@ const NavBar = () => {
         {user.currentUser ? (
           <button
             onClick={() => {
-              dispatch(logOut())
-              dispatch(ordersEmpty())
+              dispatch(logOut());
+              dispatch(ordersEmpty());
             }}
             className="nav-rigth__sign"
-            style={{backgroundColor:"transparent",border:"none",cursor:"pointer"}}
+            style={{
+              backgroundColor: "transparent",
+              border: "none",
+              cursor: "pointer",
+            }}
           >
             <span>Hello {user.currentUser.user.username}</span>
             <span className="important">LogOut</span>
@@ -100,10 +90,7 @@ const NavBar = () => {
         </Link>
         <Link to="/checkout" className="nav-rigth__checkout">
           <div className="nav-rigth__checkout__count">
-            <FontAwesomeIcon
-              className="nav-rigth__checkout__count__cart"
-              icon={faShoppingCart}
-            />
+            🛒
             <span>{countProducts.quantity}</span>
           </div>
           <span>Cart</span>

@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar,faLock } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import ProductImgSlider from "./presentational/ProductImgSlider/ProductImgSlider";
 import axios from "axios";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import "./ProductSelected.scss"
 import { addProduct } from "../../redux/cartRedux";
 
@@ -54,10 +52,7 @@ const changeProduct = (e)=>{
             <div>
               {[...Array(infoProduct.rating).keys()].map((el, i) => (
                 <span key={i + 5000}>
-                  <FontAwesomeIcon
-                    icon={faStar}
-                    style={{ fontSize: "13px", color: "#ffa41c" }}
-                  />
+                  ⭐
                 </span>
               ))}
             </div>
@@ -73,7 +68,7 @@ const changeProduct = (e)=>{
             <button className="add" onClick={()=>dispatch(addProduct({quantity:Number(productSend.quantity),product:productSend,price:productSend.price})) } >Add to Cart</button>
             <button className="buy">Buy Now</button>
             </div>
-            <h4><FontAwesomeIcon icon={faLock} style={{ fontSize: "13px", color: "grey" }}/> Secure transaction</h4>
+            <h4> 🔒 Secure transaction</h4>
           </div>
         </div>
       </div>

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "../SearchProducts.scss";
 import { Link, useParams } from "react-router-dom";
@@ -69,10 +67,7 @@ const SearchProduct = ({ filters, time }) => {
                   <h3>{elem.title}</h3>
                   {[...Array(elem.rating).keys()].map((el, i) => (
                     <span key={i}>
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ fontSize: "13px", color: "#ffa41c" }}
-                      />
+                      ⭐
                     </span>
                   ))}
                   <h3>{elem.price}</h3>
@@ -94,10 +89,7 @@ const SearchProduct = ({ filters, time }) => {
                   <h3>{elem.title}</h3>
                   {[...Array(elem.rating).keys()].map((el, i) => (
                     <span key={i}>
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        style={{ fontSize: "13px", color: "#ffa41c" }}
-                      />
+                     ⭐
                     </span>
                   ))}
                   <h3>{elem.price}</h3>

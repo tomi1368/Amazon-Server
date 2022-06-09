@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import React, { useState } from "react";
 import SearchProduct from "./presentational/SearchProduct";
 import "./SearchProducts.scss";
@@ -52,10 +50,7 @@ const SearchProducts = () => {
             >
               {[...Array(rat).keys()].map((el, i) => (
                 <span key={i}>
-                  <FontAwesomeIcon
-                    icon={faStar}
-                    style={{ fontSize: "13px", color: "#ffa41c" }}
-                  />
+                  ⭐
                 </span>
               ))}
             </button>
