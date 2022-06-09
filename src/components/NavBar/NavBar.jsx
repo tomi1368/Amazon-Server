@@ -20,7 +20,7 @@ const NavBar = () => {
       <div className="nav-left">
         <div className="nav-left__logo">
           <Link to="/">
-            <img src="/src/public/logo.png" alt="" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png" alt="" />
           </Link>
         </div>
         <div className="nav-left__location">
