@@ -25,7 +25,7 @@ describe("App", () => {
     cy.get("button[type=submit]").click();
     cy.contains("Hello tomas1368").should("be.visible");
   });
-  it.only("failed login", () => {
+  it("failed login", () => {
     //only es para ejecutar solo este
     cy.contains("Hello, Guest, Sign in").click();
     cy.get("input[name=email]").type("tomi1368@gmail.com");
@@ -37,11 +37,11 @@ describe("App", () => {
 
 describe("Logged User", () => {
   beforeEach(() => {
-    cy.request("POST", "https://redux-sv.herokuapp.com/api/test/reset");
+   cy.request("POST", "https://redux-sv.herokuapp.com/api/test/reset");
     const user = {
       username: "tomas1368",
       password: "ESCALERA",
-      email: "tomi1368@gmail.com",
+      email: "tomi1368@gmail.com"
     };
     cy.request(
       "POST",
@@ -53,16 +53,17 @@ describe("Logged User", () => {
     cy.get("input[name=email]").type("tomi1368@gmail.com");
     cy.get("input[name=password]").type("ESCALERA");
     cy.get("button[type=submit]").click(); //Esto es lo mismo que testee arriba es mejor usar la API directamente
+    cy.wait(2000);
   });
 
   it("Add Manteca", () => {
     cy.get("button[type=submit]").click();
-    cy.contains("Manteca").click();
+    cy.contains("Teclado Redragon").click();
     cy.contains("Add to Cart").click();
     cy.contains("Cart").click();
-    cy.contains("Manteca").should("be.visible");
+    cy.contains("Teclado Redragon").should("be.visible");
   });
-  it.only("Add Product", () => {
+  it("Add Product", () => {
     const product = {
       title: "Papel Higenico",
       description: "Increiblemente suave",
@@ -77,7 +78,7 @@ describe("Logged User", () => {
       password: "ESCALERA",
       email: "tomi1368@gmail.com",
     };
-    cy.request({
+   cy.request({
       url: "https://redux-sv.herokuapp.com/api/auth/login",
       method: "POST",
       body: user,
@@ -91,9 +92,8 @@ describe("Logged User", () => {
         body: product,
       });
     });
-
     cy.get("button[type=submit]").click();
-    cy.contains("Papel Higenico");
+    cy.contains("Papel Higenico").should("not.exist");
     //Si quiero guardar un elemento como en una variable para reutilizar se usa as.  cy.contain("Papel Higenico").as("papel card")
   }); //Luego para agarrar el elemento ponemos cy.get("@papel card")
   //Antes de cada test vamos a limpiar nuetra base de datos de test
