@@ -13,6 +13,8 @@ const SearchProducts = () => {
       [e.currentTarget.name]: value,
     });
   };
+  const handleActives = (name,value)=> Object.keys(filter).includes(name) && Object.values(filter).includes(value)
+  
 
   return (
     <section className="search">
@@ -22,15 +24,18 @@ const SearchProducts = () => {
             <button
               name="categories"
               onClick={() => setFilter({})}
-              className="search-filter__container__list__tag"
+              className={`search-filter__container__list__tag ${Object.values(filter).length == 0 ? "active" : ""}`}
+
             >
               All
             </button>
             {categories.map((cat, i) => (
               <button
                 name="categories"
-                onClick={(e) => handleFilter(e)}
-                className="search-filter__container__list__tag"
+                onClick={(e) => {
+                  handleFilter(e)
+                }}
+                className={`search-filter__container__list__tag ${handleActives("categories",cat) ? "active" : ""}` }
                 key={i}
                 value={cat}
               >
@@ -44,12 +49,12 @@ const SearchProducts = () => {
             <button
               name="rating"
               onClick={(e) => handleFilter(e)}
-              className="search-filter__stars__star"
+              className={`search-filter__stars__star ${handleActives("rating",rat) ? "active" : ""} `}
               key={i}
               value={rat}
             >
               {[...Array(rat).keys()].map((el, i) => (
-                <span key={i}>
+                <span className="emoji" key={i}>
                   ⭐
                 </span>
               ))}
@@ -59,9 +64,10 @@ const SearchProducts = () => {
         <div className="search-filter__container time">
           {["newest", "oldest"].map((elem) => (
             <button
-              className="search-filter__container__list__tag"
+              className={`search-filter__container__list__tag ${sort == elem ? "active" : ""}`}
               value={elem}
               onClick={() => setSort(elem)}
+              
             >
               {elem}
             </button>

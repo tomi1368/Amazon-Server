@@ -51,7 +51,7 @@ const changeProduct = (e)=>{
             <h2>{infoProduct.title}</h2>
             <div>
               {[...Array(infoProduct.rating).keys()].map((el, i) => (
-                <span key={i + 5000}>
+                <span className="emoji" key={i + 5000}>
                   ⭐
                 </span>
               ))}

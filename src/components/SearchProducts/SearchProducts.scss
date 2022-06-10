@@ -37,6 +37,9 @@
                     line-height: 30px;
                     transition: all .3s ease-in-out;
                     cursor: pointer;
+                    &.active{
+                        background-color: #b0b1b5;
+                    }
                 }
             }
         }
@@ -51,8 +54,13 @@
             }
             &__star{
                 padding: 5px 10px;
-                background: #131921;
+                background-color: #131921;
                 border: none;
+                cursor: pointer;
+                transition: background-color .5s ease-in-out;
+                &.active{
+                    background: #e4e1e1;
+                }
             }
         }
     }

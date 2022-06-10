@@ -20,10 +20,10 @@ const NavBar = () => {
       <div className="nav-left">
         <div className="nav-left__logo">
           <Link to="/">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png" alt="" />
+            <img src="https://www.pngplay.com/wp-content/uploads/3/White-Amazon-Logo-PNG-HD-Quality.png" alt="" />
           </Link>
         </div>
-        <div className="nav-left__location">
+        <div className="nav-left__location emoji">
         🗺️
           <div className="nav-left__location__country">
             <span>Deliver to</span>
@@ -89,11 +89,10 @@ const NavBar = () => {
           <span className="important">& Orders</span>
         </Link>
         <Link to="/checkout" className="nav-rigth__checkout">
-          <div className="nav-rigth__checkout__count">
+          <div className="nav-rigth__checkout__count emoji">
             🛒
             <span>{countProducts.quantity}</span>
           </div>
-          <span>Cart</span>
         </Link>
       </div>
     </nav>

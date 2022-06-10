@@ -66,7 +66,7 @@ const SearchProduct = ({ filters, time }) => {
                 <div>
                   <h3>{elem.title}</h3>
                   {[...Array(elem.rating).keys()].map((el, i) => (
-                    <span key={i}>
+                    <span className="emoji" key={i}>
                       ⭐
                     </span>
                   ))}
@@ -88,7 +88,7 @@ const SearchProduct = ({ filters, time }) => {
                 <div>
                   <h3>{elem.title}</h3>
                   {[...Array(elem.rating).keys()].map((el, i) => (
-                    <span key={i}>
+                    <span className="emoji" key={i}>
                      ⭐
                     </span>
                   ))}
